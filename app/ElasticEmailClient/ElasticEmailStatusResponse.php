@@ -6,11 +6,7 @@
  * Time: 11:04
  */
 
-
-
 namespace ElasticEmailClient {
-
-
 
     /**
      * Class ElasticEmailStatusResponse
@@ -61,6 +57,14 @@ namespace ElasticEmailClient {
         /**
          * @var array
          */
+        private $clicked = [];
+        /**
+         * @var
+         */
+        private $clickedCount;
+        /**
+         * @var array
+         */
         private $unsubscribed = [];
         /**
          * @var int
@@ -96,6 +100,94 @@ namespace ElasticEmailClient {
         }
 
         /**
+         * @return int
+         */
+        public function getFailedCount()
+        {
+            return $this->failedCount;
+        }
+
+        /**
+         * @return array
+         */
+        public function getFailed()
+        {
+            return $this->failed;
+        }
+
+        /**
+         * @return int
+         */
+        public function getSentCount()
+        {
+            return $this->sentCount;
+        }
+
+        /**
+         * @return array
+         */
+        public function getSent()
+        {
+            return $this->sent;
+        }
+
+        /**
+         * @return int
+         */
+        public function getDeliveredCount()
+        {
+            return $this->sentCount;
+        }
+
+        /**
+         * @return array
+         */
+        public function getDelivered()
+        {
+            return $this->delivered;
+        }
+
+        /**
+         * @return int
+         */
+        public function getOpenedCount()
+        {
+            return $this->openedCount;
+        }
+
+        /**
+         * @return array
+         */
+        public function getOpened()
+        {
+            return $this->opened;
+        }
+
+        /**
+         * @return int
+         */
+        public function getClickedCount()
+        {
+            return $this->clickedCount;
+        }
+
+        /**
+         * @return array
+         */
+        public function getClicked()
+        {
+            return $this->clicked;
+        }
+
+        /**
+         * @return int
+         */
+        public function getUnsubscribedCount()
+        {
+            return $this->unsubscribedCount;
+        }
+
+        /**
          * @param $response
          */
         private function mapResponse($response)
@@ -109,6 +201,8 @@ namespace ElasticEmailClient {
             $this->deliveredCount = $response->DeliveredCount;
             $this->opened = $response->Opened;
             $this->openedCount = $response->OpenedCount;
+            $this->clicked = $response->Clicked;
+            $this->clickedCount = $response->ClickedCount;
             $this->unsubscribed = $response->Unsubscribed;
             $this->unsubscribedCount = $response->UnsubscribedCount;
             $this->abusereports = $response->AbuseReports;

@@ -116,14 +116,7 @@ namespace ElasticEmailApi
      * @return int
      */
     public function CreateRandomList($listName, $count, $excludeBlocked = true, $allowUnsubscribe = false, $rule = null, $allContacts = false) {
-        return $this->sendRequest('list/createrandomlist', array(
-                    'listName' => $listName,
-                    'count' => $count,
-                    'excludeBlocked' => $excludeBlocked,
-                    'allowUnsubscribe' => $allowUnsubscribe,
-                    'rule' => $rule,
-                    'allContacts' => $allContacts
-        ));
+
     }
 
     /**
