@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class File extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -84,8 +84,6 @@ namespace ElasticEmailApi
                     'throwIfExists' => $throwIfExists
         ), "POST", $file);
     }
-
-}
 }
 
 

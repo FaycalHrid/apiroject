@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class EEList extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -224,8 +224,6 @@ namespace ElasticEmailApi
                     'allowUnsubscribe' => $allowUnsubscribe
         ));
     }
-
-}
 }
 
 ?>

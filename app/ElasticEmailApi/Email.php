@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     include '../ElasticEmailClient/ApiConfiguration.php';
     include '../ElasticEmailClient/ElasticRequest.php';
 
@@ -157,8 +157,6 @@ namespace ElasticEmailApi
                     'enableTracking' => $enableTracking
         ));
     }
-
-}
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class Template extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -165,8 +165,6 @@ namespace ElasticEmailApi
                     'templateScope' => $templateScope
         ));
     }
-
-}
 }
 
 ?>

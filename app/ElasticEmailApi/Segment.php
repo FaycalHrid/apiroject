@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     /**
  * Manages your segments - dynamically created lists of contacts
  */
@@ -119,8 +119,6 @@ class Segment extends \ElasticEmailClient\ElasticRequest
                     'rule' => $rule
         ));
     }
-
-}
 }
 
 ?>

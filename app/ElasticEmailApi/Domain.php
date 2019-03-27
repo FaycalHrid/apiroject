@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class Domain extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -103,8 +103,6 @@ namespace ElasticEmailApi
                     'trackingType' => $trackingType
         ));
     }
-
-}
 }
 
 ?>

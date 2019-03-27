@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class SMS extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -20,8 +20,6 @@ namespace ElasticEmailApi
                     'body' => $body
         ));
     }
-
-}
 }
 
 ?>

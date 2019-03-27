@@ -1,7 +1,7 @@
 <?php
 
-    namespace ElasticEmailApi
-    {
+    namespace ElasticEmailApi;
+
         class Contact extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -376,8 +376,6 @@
                     'consentTracking' => $consentTracking
         ), "POST", $contactFile);
     }
-
-}
     }
 
 ?>

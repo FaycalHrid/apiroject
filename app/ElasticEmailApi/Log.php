@@ -1,7 +1,7 @@
 <?php
 
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class Log extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -222,8 +222,6 @@ namespace ElasticEmailApi
                     'transactionID' => $transactionID
         ));
     }
-
-}
 }
 
 ?>

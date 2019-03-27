@@ -1,6 +1,6 @@
 <?php
-namespace ElasticEmailApi
-{
+namespace ElasticEmailApi;
+
     class Account extends \ElasticEmailClient\ElasticRequest
 {
     public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
@@ -642,6 +642,5 @@ namespace ElasticEmailApi
         ));
     }
 
-}
 }
 ?>

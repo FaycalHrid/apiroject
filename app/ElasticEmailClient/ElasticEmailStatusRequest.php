@@ -6,7 +6,7 @@
  * Time: 09:40
  */
 
-namespace ElasticEmailClient {
+namespace ElasticEmailClient;
 
 
     /**
@@ -38,11 +38,12 @@ namespace ElasticEmailClient {
         /**
          * ElasticEmailStatusRequest constructor.
          * @param $transactionID
+         * @param $params
          */
 
-        public function __construct($transactionID)
+        public function __construct($transactionID,$params)
         {
-            $this->apiConfig = new ApiConfiguration();
+            $this->apiConfig = new ApiConfiguration($params);
             $this->elasticClient = new ElasticClient($this->apiConfig);
             $this->elasticResponse = new ElasticEmailStatusResponse($transactionID, $this->elasticClient->Email);
         }
@@ -54,7 +55,6 @@ namespace ElasticEmailClient {
         {
             return $this->elasticResponse;
         }
-    }
 }
 
 

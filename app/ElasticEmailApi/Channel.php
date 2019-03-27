@@ -1,7 +1,6 @@
 <?php
 
-    namespace ElasticEmailApi
-    {
+    namespace ElasticEmailApi;
         /**
  * SMTP and HTTP API channels for grouping email delivery.
  */
@@ -79,8 +78,6 @@ class Channel extends \ElasticEmailClient\ElasticRequest
                     'newName' => $newName
         ));
     }
-
-}
     }
 
 ?>

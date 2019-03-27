@@ -6,7 +6,7 @@
  * Time: 11:04
  */
 
-namespace ElasticEmailClient {
+namespace ElasticEmailClient;
 
     /**
      * Class ElasticEmailStatusResponse
@@ -208,7 +208,5 @@ namespace ElasticEmailClient {
             $this->abusereports = $response->AbuseReports;
             $this->abuseReportCount = $response->AbuseReportsCount;
         }
-
-    }
 }
 ?>

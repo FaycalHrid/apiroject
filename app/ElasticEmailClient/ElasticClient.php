@@ -1,7 +1,5 @@
 <?php
-namespace ElasticEmailClient {
-
-    require_once $_SERVER['DOCUMENT_ROOT']."/app/ElasticEmailApi/AccessToken.php";
+namespace ElasticEmailClient;
 
 
     class ElasticClient
@@ -45,5 +43,4 @@ namespace ElasticEmailClient {
         public $Survey;
         public $Template;
 
-    }
 }

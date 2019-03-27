@@ -1,10 +1,6 @@
 <?php
 
-namespace ElasticEmailClient {
-
-    
-
-    
+namespace ElasticEmailClient;
 
     abstract class ElasticRequest {
         /**
@@ -137,8 +133,6 @@ namespace ElasticEmailClient {
         {
             return $this->configuration;
         }
-
-    }
 }
 
 ?>
