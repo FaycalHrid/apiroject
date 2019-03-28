@@ -1,5 +1,5 @@
 <?php
-namespace ElasticEmailApi;
+namespace App\ElasticEmailApi;
 
     class AccessToken extends \ElasticEmailClient\ElasticRequest
 {

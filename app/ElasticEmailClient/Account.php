@@ -1,5 +1,5 @@
 <?php
-namespace ElasticEmailApi;
+namespace App\ElasticEmailApi;
 
     class Account extends \ElasticEmailClient\ElasticRequest
 {

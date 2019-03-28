@@ -35,6 +35,8 @@ Route::delete('users/{id}','UserController@destroy');
 Route::put('users','UserController@store');
 // create new User
 Route::post('users','UserController@store');
+//show info
+Route::get('show','ElasticEmailStatusRequestController@show');
 
 Route::get('/user', function (Request $request) {
     return $request->user();

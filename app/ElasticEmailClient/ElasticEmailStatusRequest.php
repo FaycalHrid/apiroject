@@ -6,7 +6,7 @@
  * Time: 09:40
  */
 
-namespace ElasticEmailClient;
+namespace App\ElasticEmailClient;
 
 
     /**
@@ -14,24 +14,21 @@ namespace ElasticEmailClient;
      * @package ElasticEmailClient
      */
 
-    include 'ElasticClient.php';
-    include 'ElasticEmailStatusResponse.php';
-    include 'ApiConfiguration.php';
 
     class ElasticEmailStatusRequest
     {
         /**
-         * @var \ElasticEmailClient\ElasticClient
+         * @var \App\ElasticEmailClient\ElasticClient
          */
         private $elasticClient = null;
 
         /**
-         * @var \ElasticEmailClient\ApiConfiguration
+         * @var \App\ElasticEmailClient\ApiConfiguration
          */
         private $apiConfig = null;
 
         /**
-         * @var \ElasticEmailClient\ElasticEmailStatusResponse
+         * @var \App\ElasticEmailClient\ElasticEmailStatusResponse
          */
         private $elasticResponse = null;
 

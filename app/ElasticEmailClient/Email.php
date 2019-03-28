@@ -1,13 +1,13 @@
 <?php
 
-namespace ElasticEmailApi;
+namespace App\ElasticEmailApi;
 
     include '../ElasticEmailClient/ApiConfiguration.php';
     include '../ElasticEmailClient/ElasticRequest.php';
 
-    class Email extends \ElasticEmailClient\ElasticRequest
+    class Email extends \App\ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }

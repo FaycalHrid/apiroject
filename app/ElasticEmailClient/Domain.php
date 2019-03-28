@@ -1,6 +1,6 @@
 <?php
 
-namespace ElasticEmailApi;
+namespace App\ElasticEmailApi;
 
     class Domain extends \ElasticEmailClient\ElasticRequest
 {
