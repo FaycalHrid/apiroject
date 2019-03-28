@@ -45,7 +45,7 @@ namespace ElasticEmailApi;
      * Edit AccessToken.
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param string $tokenName 
-     * @param \ElasticEmailEnums\AccessLevel $accessLevel 
+     * @param \ElasticEmailEnums\AccessLevel $accessLevel
      * @param string $tokenNameNew 
      */
     public function Update($tokenName, $accessLevel, $tokenNameNew = null) {
