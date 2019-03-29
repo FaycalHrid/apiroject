@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
-    class Log extends \App\ElasticEmailClient\ElasticRequest
+    class Log extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }
@@ -187,7 +187,7 @@ namespace App\ElasticEmailApi;
      * @param int $offset How many items should be loaded ahead.
      * @param array<\ElasticEmailEnums\MessageCategory> $messageCategory ID of message category
      * @param bool $useStatusChangeDate True, if 'from' and 'to' parameters should resolve to the Status Change date. To resolve to the creation date - false
-     * @param \ElasticEmailEnums\NotificationType $notificationType 
+     * @param \ElasticEmailEnums\NotificationType $notificationType
      * @return \ElasticEmailEnums\Log
      */
     public function LoadNotifications($statuses, $from = null, $to = null, $limit = 0, $offset = 0, array $messageCategory = array(), $useStatusChangeDate = false, $notificationType = \ElasticEmailEnums\NotificationType::All) {

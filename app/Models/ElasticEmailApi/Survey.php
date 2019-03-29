@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
-    class Survey extends \App\ElasticEmailClient\ElasticRequest
+    class Survey extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }
@@ -52,7 +52,7 @@ namespace App\ElasticEmailApi;
     /**
      * Shows all your existing surveys
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param bool $loadSteps 
+     * @param bool $loadSteps
      * @return Array<\ElasticEmailEnums\Survey>
      */
     public function EEList($loadSteps = false) {

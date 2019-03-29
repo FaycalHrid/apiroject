@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\ElasticEmailApi;
+    namespace ElasticEmailApi;
 
         class Contact extends \ElasticEmailClient\ElasticRequest
 {
@@ -20,14 +20,14 @@
      * @param string $returnUrl URL to navigate to after account creation
      * @param string $sourceUrl URL from which request was sent.
      * @param string $activationReturnUrl The url to return the contact to after activation.
-     * @param string $activationTemplate 
+     * @param string $activationTemplate
      * @param bool $sendActivation True, if you want to send activation email to this account. Otherwise, false
      * @param ?DateTime $consentDate Date of consent to send this contact(s) your email. If not provided current date is used for consent.
      * @param string $consentIP IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
-     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname 
+     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname
      * @param string $notifyEmail Emails, separated by semicolon, to which the notification about contact subscribing should be sent to
-     * @param string $alreadyActiveUrl 
-     * @param \ElasticEmailEnums\ConsentTracking $consentTracking 
+     * @param string $alreadyActiveUrl
+     * @param \ElasticEmailEnums\ConsentTracking $consentTracking
      * @return string
      */
     public function Add($publicAccountID, $email, array $publicListID = array(), array $listName = array(), $firstName = null, $lastName = null, $source = \ElasticEmailEnums\ContactSource::ContactApi, $returnUrl = null, $sourceUrl = null, $activationReturnUrl = null, $activationTemplate = null, $sendActivation = true, $consentDate = null, $consentIP = null, array $field = array(), $notifyEmail = null, $alreadyActiveUrl = null, $consentTracking = \ElasticEmailEnums\ConsentTracking::Unknown) {
@@ -49,7 +49,7 @@
                     'alreadyActiveUrl' => $alreadyActiveUrl,
                     'consentTracking' => $consentTracking        );
         foreach(array_keys($field) as $key) {
-            $arr['field_'.$key] = $field[$key]; 
+            $arr['field_'.$key] = $field[$key];
         }
         return $this->sendRequest('contact/add', $arr);
     }
@@ -226,7 +226,7 @@
      * @param string $rule Query used for filtering.
      * @param int $limit Maximum of loaded items.
      * @param int $offset How many items should be loaded ahead.
-     * @param ?\ElasticEmailEnums\ContactSort $sort 
+     * @param ?\ElasticEmailEnums\ContactSort $sort
      * @return Array<\ElasticEmailEnums\Contact>
      */
     public function EEList($rule = null, $limit = 20, $offset = 0, $sort = null) {
@@ -296,9 +296,9 @@
      * @param string $notes Free form field of notes
      * @param ?DateTime $consentDate Date of consent to send this contact(s) your email. If not provided current date is used for consent.
      * @param string $consentIP IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
-     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname 
+     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname
      * @param string $notifyEmail Emails, separated by semicolon, to which the notification about contact subscribing should be sent to
-     * @param \ElasticEmailEnums\ConsentTracking $consentTracking 
+     * @param \ElasticEmailEnums\ConsentTracking $consentTracking
      */
     public function QuickAdd($emails, $firstName = null, $lastName = null, $publicListID = null, $listName = null, $status = \ElasticEmailEnums\ContactStatus::Active, $notes = null, $consentDate = null, $consentIP = null, array $field = array(), $notifyEmail = null, $consentTracking = \ElasticEmailEnums\ConsentTracking::Unknown) {
         $arr = array('emails' => (count($emails) === 0) ? null : join(';', $emails),
@@ -313,7 +313,7 @@
                     'notifyEmail' => $notifyEmail,
                     'consentTracking' => $consentTracking        );
         foreach(array_keys($field) as $key) {
-            $arr['field_'.$key] = $field[$key]; 
+            $arr['field_'.$key] = $field[$key];
         }
         return $this->sendRequest('contact/quickadd', $arr);
     }
@@ -336,8 +336,8 @@
      * @param string $firstName First name.
      * @param string $lastName Last name.
      * @param bool $clearRestOfFields States if the fields that were omitted in this request are to be reset or should they be left with their current value
-     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname 
-     * @param string $customFields Custom contact field like firstname, lastname, city etc. JSON serialized text like { "city":"london" } 
+     * @param array<string, string> $field Custom contact field like firstname, lastname, city etc. Request parameters prefixed by field_ like field_firstname, field_lastname
+     * @param string $customFields Custom contact field like firstname, lastname, city etc. JSON serialized text like { "city":"london" }
      * @return \ElasticEmailEnums\Contact
      */
     public function Update($email, $firstName = null, $lastName = null, $clearRestOfFields = true, array $field = array(), $customFields = null) {
@@ -347,7 +347,7 @@
                     'clearRestOfFields' => $clearRestOfFields,
                     'customFields' => $customFields        );
         foreach(array_keys($field) as $key) {
-            $arr['field_'.$key] = $field[$key]; 
+            $arr['field_'.$key] = $field[$key];
         }
         return $this->sendRequest('contact/update', $arr);
     }
@@ -362,7 +362,7 @@
      * @param \ElasticEmailEnums\ContactStatus $status Name of status: Active, Engaged, Inactive, Abuse, Bounced, Unsubscribed.
      * @param ?DateTime $consentDate Date of consent to send this contact(s) your email. If not provided current date is used for consent.
      * @param string $consentIP IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
-     * @param \ElasticEmailEnums\ConsentTracking $consentTracking 
+     * @param \ElasticEmailEnums\ConsentTracking $consentTracking
      * @return int
      */
     public function Upload($contactFile, $allowUnsubscribe = false, $listID = null, $listName = null, $status = \ElasticEmailEnums\ContactStatus::Active, $consentDate = null, $consentIP = null, $consentTracking = \ElasticEmailEnums\ConsentTracking::Unknown) {

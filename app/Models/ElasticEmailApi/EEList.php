@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     class EEList extends \ElasticEmailClient\ElasticRequest
 {

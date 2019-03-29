@@ -6,7 +6,7 @@
  * Time: 11:04
  */
 
-namespace App\ElasticEmailClient;
+namespace ElasticEmailClient;
 
     /**
      * Class ElasticEmailStatusResponse

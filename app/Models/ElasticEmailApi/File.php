@@ -1,17 +1,17 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
-    class File extends \App\ElasticEmailClient\ElasticRequest
+    class File extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }
     /**
      * Permanently deletes the file from your account
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param ?int $fileID 
+     * @param ?int $fileID
      * @param string $filename Name of your file.
      */
     public function EEDelete($fileID = null, $filename = null) {
@@ -25,7 +25,7 @@ namespace App\ElasticEmailApi;
      * Gets content of the chosen File
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param string $filename Name of your file.
-     * @param ?int $fileID 
+     * @param ?int $fileID
      * @return File
      */
     public function Download($filename = null, $fileID = null) {
@@ -71,10 +71,10 @@ namespace App\ElasticEmailApi;
     /**
      * Uploads selected file to the server using http form upload format (MIME multipart/form-data) or PUT method.
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param File $file 
+     * @param File $file
      * @param string $name Filename
      * @param ?int $expiresAfterDays After how many days should the file be deleted.
-     * @param bool $throwIfExists 
+     * @param bool $throwIfExists
      * @return \ElasticEmailEnums\File
      */
     public function Upload($file, $name = null, $expiresAfterDays = 35, $throwIfExists = false) {

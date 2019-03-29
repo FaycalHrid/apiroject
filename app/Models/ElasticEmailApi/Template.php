@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
-    class Template extends \App\ElasticEmailClient\ElasticRequest
+    class Template extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }
@@ -84,7 +84,7 @@ namespace App\ElasticEmailApi;
     /**
      * Delete templates with the specified ID
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param array<int> $templateIDs 
+     * @param array<int> $templateIDs
      */
     public function DeleteBulk($templateIDs) {
         return $this->sendRequest('template/deletebulk', array(
@@ -130,7 +130,7 @@ namespace App\ElasticEmailApi;
      * @param string $bodyHtml HTML code of email (needs escaping).
      * @param string $bodyText Text body of email.
      * @param string $css CSS style
-     * @param bool $removeScreenshot 
+     * @param bool $removeScreenshot
      */
     public function Update($templateID, $templateScope = \ElasticEmailEnums\TemplateScope::EEPrivate, $name = null, $subject = null, $fromEmail = null, $fromName = null, $bodyHtml = null, $bodyText = null, $css = null, $removeScreenshot = true) {
         return $this->sendRequest('template/update', array(
@@ -150,7 +150,7 @@ namespace App\ElasticEmailApi;
     /**
      * Bulk change default options and the scope of your templates
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param array<int> $templateIDs 
+     * @param array<int> $templateIDs
      * @param string $subject Default subject of email.
      * @param string $fromEmail Default From: email address.
      * @param string $fromName Default From: name.

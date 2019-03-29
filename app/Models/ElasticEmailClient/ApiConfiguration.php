@@ -1,5 +1,5 @@
 <?php
-namespace App\ElasticEmailClient;
+namespace ElasticEmailClient;
 
     class ApiConfiguration
         {
@@ -29,10 +29,9 @@ namespace App\ElasticEmailClient;
             * ApiConfiguration constructor.
             * @param array $params
             */
-            public function __construct($params)
+            public function __construct()
             {
-                $this->apiKey = $params['apiKey'];
-                $this->apiUrl = $params['apiUrl'];
+                
             }
 
             /**

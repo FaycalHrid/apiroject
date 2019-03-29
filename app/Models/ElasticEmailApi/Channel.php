@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\ElasticEmailApi;
+    namespace ElasticEmailApi;
         /**
  * SMTP and HTTP API channels for grouping email delivery.
  */

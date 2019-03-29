@@ -15,4 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('show','ElasticEmailStatusRequestController@show');
+Route::get('/test-page', function () {
+    return view('test-page');
+});
+
+

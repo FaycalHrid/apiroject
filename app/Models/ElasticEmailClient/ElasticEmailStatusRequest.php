@@ -6,29 +6,31 @@
  * Time: 09:40
  */
 
-namespace App\ElasticEmailClient;
-
+namespace ElasticEmailClient;
 
     /**
      * Class ElasticEmailStatusRequest
      * @package ElasticEmailClient
      */
 
+    include 'ElasticClient.php';
+    include 'ElasticEmailStatusResponse.php';
+    include 'ApiConfiguration.php';
 
     class ElasticEmailStatusRequest
-    {
+     {
         /**
-         * @var \App\ElasticEmailClient\ElasticClient
+         * @var \ElasticEmailClient\ElasticClient
          */
         private $elasticClient = null;
 
         /**
-         * @var \App\ElasticEmailClient\ApiConfiguration
+         * @var \ElasticEmailClient\ApiConfiguration
          */
         private $apiConfig = null;
 
         /**
-         * @var \App\ElasticEmailClient\ElasticEmailStatusResponse
+         * @var \ElasticEmailClient\ElasticEmailStatusResponse
          */
         private $elasticResponse = null;
 
@@ -37,10 +39,9 @@ namespace App\ElasticEmailClient;
          * @param $transactionID
          * @param $params
          */
-
-        public function __construct($transactionID,$params)
+        public function __construct($transactionID)
         {
-            $this->apiConfig = new ApiConfiguration($params);
+            $this->apiConfig = new ApiConfiguration();
             $this->elasticClient = new ElasticClient($this->apiConfig);
             $this->elasticResponse = new ElasticEmailStatusResponse($transactionID, $this->elasticClient->Email);
         }

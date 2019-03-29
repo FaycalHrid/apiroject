@@ -1,13 +1,13 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     include '../ElasticEmailClient/ApiConfiguration.php';
     include '../ElasticEmailClient/ElasticRequest.php';
 
-    class Email extends \App\ElasticEmailClient\ElasticRequest
+    class Email extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }
@@ -125,10 +125,10 @@ namespace App\ElasticEmailApi;
                     'utmCampaign' => $utmCampaign,
                     'utmContent' => $utmContent        );
         foreach(array_keys($headers) as $key) {
-            $arr['headers_'.$key] = $key.': '.$headers[$key]; 
+            $arr['headers_'.$key] = $key.': '.$headers[$key];
         }
         foreach(array_keys($merge) as $key) {
-            $arr['merge_'.$key] = $merge[$key]; 
+            $arr['merge_'.$key] = $merge[$key];
         }
         return $this->sendRequest('email/send', $arr, "POST", $attachmentFiles);
     }
@@ -148,7 +148,7 @@ namespace App\ElasticEmailApi;
     /**
      * View email
      * @param string $messageID Message identifier
-     * @param bool $enableTracking 
+     * @param bool $enableTracking
      * @return \ElasticEmailEnums\EmailView
      */
     public function View($messageID, $enableTracking = false) {

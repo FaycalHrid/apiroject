@@ -1,5 +1,5 @@
 <?php
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     class Campaign extends \ElasticEmailClient\ElasticRequest
 {
@@ -23,7 +23,7 @@ namespace App\ElasticEmailApi;
      * Copy selected campaign
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param int $channelID ID number of selected Channel.
-     * @param string $newCampaignName 
+     * @param string $newCampaignName
      * @return int
      */
     public function EECopy($channelID, $newCampaignName = null) {

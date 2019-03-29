@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     class Domain extends \ElasticEmailClient\ElasticRequest
 {
@@ -12,8 +12,8 @@ namespace App\ElasticEmailApi;
      * Add new domain to account
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param string $domain Name of selected domain.
-     * @param \ElasticEmailEnums\TrackingType $trackingType 
-     * @param bool $setAsDefault 
+     * @param \ElasticEmailEnums\TrackingType $trackingType
+     * @param bool $setAsDefault
      */
     public function Add($domain, $trackingType = \ElasticEmailEnums\TrackingType::Http, $setAsDefault = false) {
         return $this->sendRequest('domain/add', array(
@@ -94,7 +94,7 @@ namespace App\ElasticEmailApi;
      * Verification of tracking CNAME record for domain
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param string $domain Name of selected domain.
-     * @param \ElasticEmailEnums\TrackingType $trackingType 
+     * @param \ElasticEmailEnums\TrackingType $trackingType
      * @return string
      */
     public function VerifyTracking($domain, $trackingType = \ElasticEmailEnums\TrackingType::Http) {

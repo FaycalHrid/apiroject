@@ -1,5 +1,5 @@
 <?php
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     class AccessToken extends \ElasticEmailClient\ElasticRequest
 {
@@ -10,8 +10,8 @@ namespace App\ElasticEmailApi;
     /**
      * Add new AccessToken
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param string $tokenName 
-     * @param \ElasticEmailEnums\AccessLevel $accessLevel 
+     * @param string $tokenName
+     * @param \ElasticEmailEnums\AccessLevel $accessLevel
      * @return string
      */
     public function Add($tokenName, $accessLevel) {
@@ -24,7 +24,7 @@ namespace App\ElasticEmailApi;
     /**
      * Permanently delete AccessToken.
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param string $tokenName 
+     * @param string $tokenName
      */
     public function EEDelete($tokenName) {
         return $this->sendRequest('accesstoken/delete', array(
@@ -44,9 +44,9 @@ namespace App\ElasticEmailApi;
     /**
      * Edit AccessToken.
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param string $tokenName 
+     * @param string $tokenName
      * @param \ElasticEmailEnums\AccessLevel $accessLevel
-     * @param string $tokenNameNew 
+     * @param string $tokenNameNew
      */
     public function Update($tokenName, $accessLevel, $tokenNameNew = null) {
         return $this->sendRequest('accesstoken/update', array(

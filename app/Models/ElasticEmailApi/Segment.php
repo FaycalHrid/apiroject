@@ -1,13 +1,13 @@
 <?php
 
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     /**
  * Manages your segments - dynamically created lists of contacts
  */
-class Segment extends \App\ElasticEmailClient\ElasticRequest
+class Segment extends \ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\App\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }

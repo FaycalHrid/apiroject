@@ -1,5 +1,5 @@
 <?php
-namespace App\ElasticEmailApi;
+namespace ElasticEmailApi;
 
     class Account extends \ElasticEmailClient\ElasticRequest
 {
@@ -10,7 +10,7 @@ namespace App\ElasticEmailApi;
     /**
      * Request premium support for your account
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param \ElasticEmailEnums\SupportPlan $supportPlan 
+     * @param \ElasticEmailEnums\SupportPlan $supportPlan
      */
     public function AddDedicatedSupport($supportPlan) {
         return $this->sendRequest('account/adddedicatedsupport', array(
@@ -24,7 +24,7 @@ namespace App\ElasticEmailApi;
      * @param string $email Proper email address.
      * @param string $password Current password.
      * @param string $confirmPassword Repeat new password.
-     * @param bool $allow2fa 
+     * @param bool $allow2fa
      * @param bool $requiresEmailCredits True, if account needs credits to send emails. Otherwise, false
      * @param int $maxContacts Maximum number of contacts the account can have
      * @param bool $enablePrivateIPRequest True, if account can request for private IP on its own. Otherwise, false
@@ -80,13 +80,13 @@ namespace App\ElasticEmailApi;
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param string $webNotificationUrl URL address to receive web notifications to parse and process.
      * @param string $name Filename
-     * @param ?bool $notifyOncePerEmail 
-     * @param ?bool $notificationForSent 
-     * @param ?bool $notificationForOpened 
-     * @param ?bool $notificationForClicked 
-     * @param ?bool $notificationForUnsubscribed 
-     * @param ?bool $notificationForAbuseReport 
-     * @param ?bool $notificationForError 
+     * @param ?bool $notifyOncePerEmail
+     * @param ?bool $notificationForSent
+     * @param ?bool $notificationForOpened
+     * @param ?bool $notificationForClicked
+     * @param ?bool $notificationForUnsubscribed
+     * @param ?bool $notificationForAbuseReport
+     * @param ?bool $notificationForError
      * @return string
      */
     public function AddWebhook($webNotificationUrl, $name, $notifyOncePerEmail = null, $notificationForSent = null, $notificationForOpened = null, $notificationForClicked = null, $notificationForUnsubscribed = null, $notificationForAbuseReport = null, $notificationForError = null) {
@@ -165,7 +165,7 @@ namespace App\ElasticEmailApi;
     /**
      * Delete notifications webhook
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param string $webhookID 
+     * @param string $webhookID
      */
     public function DeleteWebhook($webhookID) {
         return $this->sendRequest('account/deletewebhook', array(
@@ -343,7 +343,7 @@ namespace App\ElasticEmailApi;
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param DateTime $from Starting date for search in YYYY-MM-DDThh:mm:ss format.
      * @param DateTime $to Ending date for search in YYYY-MM-DDThh:mm:ss format.
-     * @param bool $loadSubaccountsUsage 
+     * @param bool $loadSubaccountsUsage
      * @return Array<\ElasticEmailEnums\Usage>
      */
     public function LoadUsage($from, $to, $loadSubaccountsUsage = true) {
@@ -472,7 +472,7 @@ namespace App\ElasticEmailApi;
      * @param string $deliveryReason Why your clients are receiving your emails.
      * @param ?bool $tutorialsEnabled True, if you want to enable Dashboard Tutotials
      * @param ?bool $enableOpenTracking True, if you want to track opens. Otherwise, false
-     * @param ?bool $consentTrackingOnUnsubscribe 
+     * @param ?bool $consentTrackingOnUnsubscribe
      * @return \ElasticEmailEnums\AdvancedOptions
      */
     public function UpdateAdvancedOptions($enableClickTracking = null, $enableLinkClickTracking = null, $manageSubscriptions = null, $manageSubscribedOnly = null, $transactionalOnUnsubscribe = null, $skipListUnsubscribe = null, $autoTextFromHtml = null, $allowCustomHeaders = null, $bccEmail = null, $contentTransferEncoding = null, $emailNotificationForError = null, $emailNotificationEmail = null, $lowCreditNotification = null, $enableUITooltips = null, $notificationsEmails = null, $unsubscribeNotificationsEmails = null, $logoUrl = null, $enableTemplateScripting = true, $staleContactScore = null, $staleContactInactiveDays = null, $deliveryReason = null, $tutorialsEnabled = null, $enableOpenTracking = null, $consentTrackingOnUnsubscribe = null) {
@@ -584,7 +584,7 @@ namespace App\ElasticEmailApi;
      * Updates settings of specified subaccount
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
      * @param bool $requiresEmailCredits True, if account needs credits to send emails. Otherwise, false
-     * @param ?bool $allow2fa 
+     * @param ?bool $allow2fa
      * @param int $monthlyRefillCredits Amount of credits added to account automatically
      * @param ?int $dailySendLimit Amount of emails account can send daily
      * @param int $emailSizeLimit Maximum size of email including attachments in MB's
@@ -616,16 +616,16 @@ namespace App\ElasticEmailApi;
     /**
      * Update notification webhook
      * @param string $apikey ApiKey that gives you access to our SMTP and HTTP API's.
-     * @param string $webhookID 
+     * @param string $webhookID
      * @param string $name Filename
      * @param string $webNotificationUrl URL address to receive web notifications to parse and process.
-     * @param ?bool $notifyOncePerEmail 
-     * @param ?bool $notificationForSent 
-     * @param ?bool $notificationForOpened 
-     * @param ?bool $notificationForClicked 
-     * @param ?bool $notificationForUnsubscribed 
-     * @param ?bool $notificationForAbuseReport 
-     * @param ?bool $notificationForError 
+     * @param ?bool $notifyOncePerEmail
+     * @param ?bool $notificationForSent
+     * @param ?bool $notificationForOpened
+     * @param ?bool $notificationForClicked
+     * @param ?bool $notificationForUnsubscribed
+     * @param ?bool $notificationForAbuseReport
+     * @param ?bool $notificationForError
      */
     public function UpdateWebhook($webhookID, $name = null, $webNotificationUrl = null, $notifyOncePerEmail = null, $notificationForSent = null, $notificationForOpened = null, $notificationForClicked = null, $notificationForUnsubscribed = null, $notificationForAbuseReport = null, $notificationForError = null) {
         return $this->sendRequest('account/updatewebhook', array(
