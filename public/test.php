@@ -1,15 +1,13 @@
- <?php
+<?php
 /**
  * Created by PhpStorm.
  * User: Faycal
- * Date: 25/03/2019
- * Time: 14:19
+ * Date: 01/04/2019
+ * Time: 11:33
  */
 
-use App\Http\Controllers\ElasticEmailStatusRequestController as EESRController;
+include '../app/Models/ElasticEmailClient/ElasticEmailStatusRequest.php';
 
-$controller = new EESRController();
+$request = new \ElasticEmailClient\ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
 
-$response = $controller->index();
-
-echo $response->getFailedCount();
+echo $request->getResponse()->getFailedCount();

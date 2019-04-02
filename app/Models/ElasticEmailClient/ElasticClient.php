@@ -1,21 +1,7 @@
 <?php
 namespace ElasticEmailClient;
 
-use App\Models\ElasticEmailApi\AccessToken as AccessToken;
-use App\Models\ElasticEmailApi\Account as Account;
-use App\Models\ElasticEmailApi\Campaign as Campaign;
-use App\Models\ElasticEmailApi\Channel as Channel;
-use App\Models\ElasticEmailApi\Contact as Contact;
-use App\Models\ElasticEmailApi\Domain as Domain;
-use App\Models\ElasticEmailApi\Email as Email;
-use App\Models\ElasticEmailApi\Export as Export;
-use App\Models\ElasticEmailApi\File as File;
-use App\Models\ElasticEmailApi\EEList as EEList;
-use App\Models\ElasticEmailApi\Log as Log;
-use App\Models\ElasticEmailApi\Segment as Segment;
-use App\Models\ElasticEmailApi\SMS as SMS;
-use App\Models\ElasticEmailApi\Survey as Survey;
-use App\Models\ElasticEmailApi\Template as Template;
+    require '../ElasticEmailApi/AccessToken.php';
 
     class ElasticClient
     {
@@ -42,6 +28,7 @@ use App\Models\ElasticEmailApi\Template as Template;
             $this->Survey= new \ElasticEmailApi\Survey($apiConfiguration);
             $this->Template= new \ElasticEmailApi\Template($apiConfiguration);
         }
+
         public $AccessToken;
         public $Account;
         public $Campaign;

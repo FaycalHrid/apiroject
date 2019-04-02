@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use ElasticEmailClient\ElasticEmailStatusRequest as ElasticEmailStatusRequest;
 use Illuminate\Http\Request;
 
+
 class ElasticEmailStatusRequestController extends Controller
 {
     /**
@@ -45,6 +46,11 @@ class ElasticEmailStatusRequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(ElasticEmailStatusRequest $elasticEmailStatusRequest)
+    {
+
+    }
+
+    public static function getFailedCount()
     {
         $request = new ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
         echo $request->getResponse()->getFailedCount();

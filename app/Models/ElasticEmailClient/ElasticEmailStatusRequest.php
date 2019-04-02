@@ -53,7 +53,7 @@ namespace ElasticEmailClient;
         {
             return $this->elasticResponse;
         }
-}
+     }
 
 
 
