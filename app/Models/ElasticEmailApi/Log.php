@@ -1,10 +1,10 @@
 <?php
 
-namespace ElasticEmailApi;
+namespace App\Models\ElasticEmailApi;
 
-    class Log extends \ElasticEmailClient\ElasticRequest
+    class Log extends \App\Models\ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\App\Models\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }

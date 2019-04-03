@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use ElasticEmailClient\ElasticEmailStatusRequest as ElasticEmailStatusRequest;
+use App\Models\ElasticEmailClient\ElasticEmailStatusRequest as ElasticEmailStatusRequest;
 use Illuminate\Http\Request;
 
 
@@ -11,7 +11,7 @@ class ElasticEmailStatusRequestController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \ElasticEmailClient\ElasticEmailStatusResponse
+     * @return \App\Models\ElasticEmailClient\ElasticEmailStatusResponse
      */
     public function index()
     {
@@ -42,7 +42,7 @@ class ElasticEmailStatusRequestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
+     * @param  \App\Models\ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
      * @return \Illuminate\Http\Response
      */
     public function show(ElasticEmailStatusRequest $elasticEmailStatusRequest)
@@ -56,10 +56,16 @@ class ElasticEmailStatusRequestController extends Controller
         echo $request->getResponse()->getFailedCount();
     }
 
+    public static function getResponse()
+    {
+        $request = new ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
+        print_r($request->getResponse()->getResponse());
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
+     * @param  \App\Models\ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
      * @return \Illuminate\Http\Response
      */
     public function edit(ElasticEmailStatusRequest $elasticEmailStatusRequest)
@@ -71,7 +77,7 @@ class ElasticEmailStatusRequestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
+     * @param  \App\Models\ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, ElasticEmailStatusRequest $elasticEmailStatusRequest)
@@ -82,7 +88,7 @@ class ElasticEmailStatusRequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
+     * @param  \App\Models\ElasticEmailClient\ElasticEmailStatusRequest  $elasticEmailStatusRequest
      * @return \Illuminate\Http\Response
      */
     public function destroy(ElasticEmailStatusRequest $elasticEmailStatusRequest)

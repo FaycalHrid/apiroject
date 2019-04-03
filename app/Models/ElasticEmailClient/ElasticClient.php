@@ -1,32 +1,32 @@
 <?php
-namespace ElasticEmailClient;
+namespace App\Models\ElasticEmailClient;
 
-    require '../ElasticEmailApi/AccessToken.php';
+    use \App\Models\ElasticEmailApi\AccessToken as AccessToken;
 
     class ElasticClient
     {
         /**
          * ElasticClient constructor.
-         * @param \ElasticEmailClient\ApiConfiguration $apiConfiguration
+         * @param \App\Models\ElasticEmailClient\ApiConfiguration $apiConfiguration
          */
 
         public function __construct(ApiConfiguration $apiConfiguration)
         {
-            $this->AccessToken= new \ElasticEmailApi\AccessToken($apiConfiguration);
-            $this->Account= new \ElasticEmailApi\Account($apiConfiguration);
-            $this->Campaign= new \ElasticEmailApi\Campaign($apiConfiguration);
-            $this->Channel= new \ElasticEmailApi\Channel($apiConfiguration);
-            $this->Contact= new \ElasticEmailApi\Contact($apiConfiguration);
-            $this->Domain= new \ElasticEmailApi\Domain($apiConfiguration);
-            $this->Email= new \ElasticEmailApi\Email($apiConfiguration);
-            $this->Export= new \ElasticEmailApi\Export($apiConfiguration);
-            $this->File= new \ElasticEmailApi\File($apiConfiguration);
-            $this->EEList= new \ElasticEmailApi\EEList($apiConfiguration);
-            $this->Log= new \ElasticEmailApi\Log($apiConfiguration);
-            $this->Segment= new \ElasticEmailApi\Segment($apiConfiguration);
-            $this->SMS= new \ElasticEmailApi\SMS($apiConfiguration);
-            $this->Survey= new \ElasticEmailApi\Survey($apiConfiguration);
-            $this->Template= new \ElasticEmailApi\Template($apiConfiguration);
+            $this->AccessToken= new AccessToken($apiConfiguration);
+            $this->Account= new \App\Models\ElasticEmailApi\Account($apiConfiguration);
+            $this->Campaign= new \App\Models\ElasticEmailApi\Campaign($apiConfiguration);
+            $this->Channel= new \App\Models\ElasticEmailApi\Channel($apiConfiguration);
+            $this->Contact= new \App\Models\ElasticEmailApi\Contact($apiConfiguration);
+            $this->Domain= new \App\Models\ElasticEmailApi\Domain($apiConfiguration);
+            $this->Email= new \App\Models\ElasticEmailApi\Email($apiConfiguration);
+            $this->Export= new \App\Models\ElasticEmailApi\Export($apiConfiguration);
+            $this->File= new \App\Models\ElasticEmailApi\File($apiConfiguration);
+            $this->EEList= new \App\Models\ElasticEmailApi\EEList($apiConfiguration);
+            $this->Log= new \App\Models\ElasticEmailApi\Log($apiConfiguration);
+            $this->Segment= new \App\Models\ElasticEmailApi\Segment($apiConfiguration);
+            $this->SMS= new \App\Models\ElasticEmailApi\SMS($apiConfiguration);
+            $this->Survey= new \App\Models\ElasticEmailApi\Survey($apiConfiguration);
+            $this->Template= new \App\Models\ElasticEmailApi\Template($apiConfiguration);
         }
 
         public $AccessToken;

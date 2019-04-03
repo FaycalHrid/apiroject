@@ -1,10 +1,10 @@
 <?php
 
-namespace ElasticEmailClient;
+namespace App\Models\ElasticEmailClient;
 
     abstract class ElasticRequest {
         /**
-         * @var \ElasticEmailClient\ApiConfiguration ApiConfiguration
+         * @var \App\Models\ElasticEmailClient\ApiConfiguration ApiConfiguration
          */
         protected $configuration;
 
@@ -13,7 +13,7 @@ namespace ElasticEmailClient;
          */
         private $httpClient;
 
-        public function __construct(\ElasticEmailClient\ApiConfiguration $conf)
+        public function __construct(\App\Models\ElasticEmailClient\ApiConfiguration $conf)
         {
             $this->configuration = $conf;
 
@@ -38,7 +38,7 @@ namespace ElasticEmailClient;
         {
             $method = strtoupper($method);
 
-                    if (!in_array($method, \ElasticEmailClient\ApiConfiguration::AVAILABLE_REQUEST_METHODS))
+                    if (!in_array($method, \App\Models\ElasticEmailClient\ApiConfiguration::AVAILABLE_REQUEST_METHODS))
                     {
                         throw new \Exception('Unallowed request method type');
                     }
@@ -116,10 +116,10 @@ namespace ElasticEmailClient;
         }
 
         /**
-            * @param \ElasticEmailClient\ApiConfiguration $config
+            * @param \App\Models\ElasticEmailClient\ApiConfiguration $config
             * @return $this
             */
-        public function setConfiguration(\ElasticEmailClient\ApiConfiguration $config)
+        public function setConfiguration(\App\Models\ElasticEmailClient\ApiConfiguration $config)
         {
             $this->configuration = $config;
 
@@ -127,7 +127,7 @@ namespace ElasticEmailClient;
         }
 
         /**
-            * @return \ElasticEmailClient\ApiConfiguration
+            * @return \App\Models\ElasticEmailClient\ApiConfiguration
             */
         public function getConfiguration()
         {

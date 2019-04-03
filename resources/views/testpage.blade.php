@@ -67,7 +67,7 @@
 <body>
 <div class="flex-center position-ref full-height">
    @php
-        echo \App\Http\Controllers\ElasticEmailStatusRequestController::getFailedCount();
+       \App\Http\Controllers\ElasticEmailStatusRequestController::getResponse();
    @endphp
 
     <div class="content">

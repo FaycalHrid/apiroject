@@ -1,12 +1,12 @@
 <?php
 
-    namespace ElasticEmailApi;
+    namespace App\Models\ElasticEmailApi;
         /**
  * SMTP and HTTP API channels for grouping email delivery.
  */
-class Channel extends \ElasticEmailClient\ElasticRequest
+class Channel extends \App\Models\ElasticEmailClient\ElasticRequest
 {
-    public function __construct(\ElasticEmailClient\ApiConfiguration $apiConfiguration)
+    public function __construct(\App\Models\ElasticEmailClient\ApiConfiguration $apiConfiguration)
     {
         parent::__construct($apiConfiguration);
     }

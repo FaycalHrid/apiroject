@@ -6,7 +6,7 @@
  * Time: 11:04
  */
 
-namespace ElasticEmailClient;
+namespace App\Models\ElasticEmailClient;
 
     /**
      * Class ElasticEmailStatusResponse
@@ -80,11 +80,16 @@ namespace ElasticEmailClient;
         private $abuseReportCount;
 
         /**
+         * @var
+         */
+        private $response;
+
+        /**
          * ElasticEmailStatusResponse constructor.
          * @param $transactionID
-         * @param \ElasticEmailApi\Email $email
+         * @param \App\Models\ElasticEmailApi\Email $email
          */
-        public function __construct($transactionID,\ElasticEmailApi\Email $email)
+        public function __construct($transactionID,\App\Models\ElasticEmailApi\Email $email)
         {
             $this->transactionId = $transactionID;
             $response = $email->GetStatus($this->transactionId);
@@ -187,12 +192,18 @@ namespace ElasticEmailClient;
             return $this->unsubscribedCount;
         }
 
-        /**
-         * @param $response
-         */
-        private function mapResponse($response)
+        public function getResponse()
         {
-            $this->recipientsCount = $response->RecipientsCount;
+            return $this->response;
+        }
+
+        /**
+         * @param $jsonResponse
+         */
+        private function mapResponse($jsonResponse)
+        {
+            $this->response = json_decode(json_encode($jsonResponse), true);
+            /*$this->recipientsCount = $response['recipientsCount'];
             $this->failed = $response->Failed;
             $this->failedCount = $response->FailedCount;
             $this->sent = $response->Sent;
@@ -206,7 +217,7 @@ namespace ElasticEmailClient;
             $this->unsubscribed = $response->Unsubscribed;
             $this->unsubscribedCount = $response->UnsubscribedCount;
             $this->abusereports = $response->AbuseReports;
-            $this->abuseReportCount = $response->AbuseReportsCount;
+            $this->abuseReportCount = $response->AbuseReportsCount;*/
         }
 }
 ?>

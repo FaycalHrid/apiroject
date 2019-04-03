@@ -1,5 +1,5 @@
 <?php
-namespace ElasticEmailClient;
+namespace App\Models\ElasticEmailClient;
 
     class ApiConfiguration
         {
