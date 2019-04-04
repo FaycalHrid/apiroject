@@ -77,12 +77,17 @@ namespace App\Models\ElasticEmailClient;
         /**
          * @var int
          */
-        private $abuseReportCount;
+        private $abuseReportsCount;
 
         /**
          * @var
          */
         private $response;
+
+        /**
+         * @var
+         */
+        private $deliveryRate;
 
         /**
          * ElasticEmailStatusResponse constructor.
@@ -96,6 +101,8 @@ namespace App\Models\ElasticEmailClient;
             $this->mapResponse($response);
         }
 
+
+        //Recipients
         /**
          * @return int
          */
@@ -104,6 +111,26 @@ namespace App\Models\ElasticEmailClient;
             return $this->recipientsCount;
         }
 
+
+        //Abuse Reports
+        /**
+         * @return array
+         */
+        public function getAbuseReports()
+        {
+            return $this->abusereports;
+        }
+
+        /**
+         * @return int
+         */
+        public function getAbuseReportsCount()
+        {
+            return $this->abuseReportsCount;
+        }
+
+
+        //Failed
         /**
          * @return int
          */
@@ -120,6 +147,8 @@ namespace App\Models\ElasticEmailClient;
             return $this->failed;
         }
 
+
+        //Sent
         /**
          * @return int
          */
@@ -136,6 +165,8 @@ namespace App\Models\ElasticEmailClient;
             return $this->sent;
         }
 
+
+        //Delivered
         /**
          * @return int
          */
@@ -152,6 +183,8 @@ namespace App\Models\ElasticEmailClient;
             return $this->delivered;
         }
 
+
+        //Opened
         /**
          * @return int
          */
@@ -168,6 +201,8 @@ namespace App\Models\ElasticEmailClient;
             return $this->opened;
         }
 
+
+        //Clicked
         /**
          * @return int
          */
@@ -184,6 +219,8 @@ namespace App\Models\ElasticEmailClient;
             return $this->clicked;
         }
 
+
+        //Unsubscribed
         /**
          * @return int
          */
@@ -192,10 +229,28 @@ namespace App\Models\ElasticEmailClient;
             return $this->unsubscribedCount;
         }
 
+        public function getUnsubscribed()
+        {
+            return $this->unsubscribed;
+        }
+
         public function getResponse()
         {
             return $this->response;
         }
+
+        private function divideFloat($a, $b, $precision=3) {
+            $a*=pow(10, $precision);
+            $result=(int)($a / $b);
+            if (strlen($result)==$precision) return '0.' . $result;
+            else return preg_replace('/(\d{' . $precision . '})$/', '.\1', $result);
+        }
+
+        public function getDeliveryRate()
+        {
+            return $this->deliveryRate;
+        }
+
 
         /**
          * @param $jsonResponse
@@ -203,21 +258,22 @@ namespace App\Models\ElasticEmailClient;
         private function mapResponse($jsonResponse)
         {
             $this->response = json_decode(json_encode($jsonResponse), true);
-            /*$this->recipientsCount = $response['recipientsCount'];
-            $this->failed = $response->Failed;
-            $this->failedCount = $response->FailedCount;
-            $this->sent = $response->Sent;
-            $this->sentCount = $response->SentCount;
-            $this->delivered = $response->Delivered;
-            $this->deliveredCount = $response->DeliveredCount;
-            $this->opened = $response->Opened;
-            $this->openedCount = $response->OpenedCount;
-            $this->clicked = $response->Clicked;
-            $this->clickedCount = $response->ClickedCount;
-            $this->unsubscribed = $response->Unsubscribed;
-            $this->unsubscribedCount = $response->UnsubscribedCount;
-            $this->abusereports = $response->AbuseReports;
-            $this->abuseReportCount = $response->AbuseReportsCount;*/
+            $this->recipientsCount = $this->response['recipientscount'];
+            $this->failed = $this->response['failed'];
+            $this->failedCount = $this->response['failedcount'];
+            $this->sent = $this->response['sent'];
+            $this->sentCount = $this->response['sentcount'];
+            $this->delivered = $this->response['delivered'];
+            $this->deliveredCount = $this->response['deliveredcount'];
+            $this->opened = $this->response['opened'];
+            $this->openedCount = $this->response['openedcount'];
+            $this->clicked = $this->response['clicked'];
+            $this->clickedCount = $this->response['clickedcount'];
+            $this->unsubscribed = $this->response['unsubscribed'];
+            $this->unsubscribedCount = $this->response['unsubscribedcount'];
+            $this->abusereports = $this->response['abusereports'];
+            $this->abuseReportsCount = $this->response['abusereportscount'];
+            $this->deliveryRate = (float)$this->deliveredCount/(float)$this->recipientsCount;
         }
 }
 ?>

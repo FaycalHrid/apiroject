@@ -53,7 +53,7 @@ class UserController extends Controller
 
         }
 
-        public function store(Request $request)  {
+        public function store(Request $request){
             if ($request->isMethod('put')) {
                 //Get the user
                 $user = User::find($request->user_id);

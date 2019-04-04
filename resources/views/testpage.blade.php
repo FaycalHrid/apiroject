@@ -67,22 +67,12 @@
 <body>
 <div class="flex-center position-ref full-height">
    @php
-       \App\Http\Controllers\ElasticEmailStatusRequestController::getResponse();
+       $request = new \App\Models\ElasticEmailClient\ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
+       $controller = new \App\Http\Controllers\ElasticEmailStatusRequestController();
+       $controller->show($request);
    @endphp
 
-    <div class="content">
-        <div class="title m-b-md">
-            Laravel
-        </div>
 
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div>
-    </div>
 </div>
 </body>
 </html>

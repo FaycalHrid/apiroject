@@ -47,20 +47,10 @@ class ElasticEmailStatusRequestController extends Controller
      */
     public function show(ElasticEmailStatusRequest $elasticEmailStatusRequest)
     {
-
+        echo $elasticEmailStatusRequest->getResponse()->getDeliveryRate();
     }
 
-    public static function getFailedCount()
-    {
-        $request = new ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
-        echo $request->getResponse()->getFailedCount();
-    }
 
-    public static function getResponse()
-    {
-        $request = new ElasticEmailStatusRequest('4c0f0932-3fe0-0182-a032-cf3b2e19db36');
-        print_r($request->getResponse()->getResponse());
-    }
 
     /**
      * Show the form for editing the specified resource.
